@@ -16,7 +16,7 @@ class MyLocalStorage {
      * @return {void}
      */
     set(key, value) {
-        !this.has(key) ? localStorage.setItem(key, value): null;
+        !this.has(key) ? localStorage.setItem(key, value) : null;
     }
 
     /** 
@@ -35,9 +35,9 @@ class MyLocalStorage {
      * @param {sting} key - to find the correct localStorage item
      * @return {void}
      */
-     update(key, value) {
-        this.has(key) ? localStorage.setItem(key, value): null;
-    }    
+    update(key, value) {
+        this.has(key) ? localStorage.setItem(key, value) : null;
+    }
 
     /** 
      * @method remove
@@ -108,13 +108,7 @@ class MyLocalStorage {
      */
     removeFromArray(key, value) {
         const array = JSON.parse(localStorage.getItem(key)) ?? [];
-        const newArray = [];
-
-        array.forEach(element => {
-            if (element !== value) {
-                newArray.push(element)
-            }
-        });
+        const newArray = array.filter(a => a !== value);
         localStorage.setItem(key, JSON.stringify(newArray));
     }
 

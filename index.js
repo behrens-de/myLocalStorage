@@ -16,7 +16,7 @@ class MyLocalStorage {
      * @return {void}
      */
     set(key, value) {
-        !this.isset(key) ? localStorage.setItem(key, value): null;
+        !this.has(key) ? localStorage.setItem(key, value): null;
     }
 
     /** 
@@ -36,7 +36,7 @@ class MyLocalStorage {
      * @return {void}
      */
      update(key, value) {
-        this.isset(key) ? localStorage.setItem(key, value): null;
+        this.has(key) ? localStorage.setItem(key, value): null;
     }    
 
     /** 
@@ -50,12 +50,12 @@ class MyLocalStorage {
     }
 
     /** 
-     * @method isset
+     * @method has
      * @description - check if localStorage Item is set
      * @param {sting} key - to find the correct localStorage item
      * @return {boolean}
      */
-    isset(key) {
+    has(key) {
         return localStorage.getItem(key) !== null;
     }
 

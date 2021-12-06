@@ -51,7 +51,7 @@ class MyLocalStorage {
 
     /** 
      * @method has
-     * @description - check if localStorage Item is set
+     * @description - check if localStorage has Item 
      * @param {sting} key - to find the correct localStorage item
      * @return {boolean}
      */
@@ -69,7 +69,7 @@ class MyLocalStorage {
      * @return {void}
      */
     setArray(key, array) {
-        if (Array.isArray(array)) {
+        if (Array.isArray(array) && !this.has(key)) {
             localStorage.setItem(key, JSON.stringify(array));
         }
     }

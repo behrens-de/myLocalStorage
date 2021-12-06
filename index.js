@@ -16,7 +16,7 @@ class MyLocalStorage {
      * @return {void}
      */
     set(key, value) {
-        localStorage.setItem(key, value);
+        !this.isset(key) ? localStorage.setItem(key, value): null;
     }
 
     /** 
@@ -210,7 +210,7 @@ class MyLocalStorage {
      * @param {string} key - the localStorage Key
      * @returns {boolean}  
      */
-     supported() {
+    supported() {
         let check = 'check';
         try {
             localStorage.setItem(check, check);

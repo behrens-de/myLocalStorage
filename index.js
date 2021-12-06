@@ -26,16 +26,16 @@ class MyLocalStorage {
      * @return {string}
      */
     get(key) {
-        localStorage.getItem(key);
+        return localStorage.getItem(key);
     }
 
     /** 
      * @method update
      * @description - update item from the the localStorage
      * @param {sting} key - to find the correct localStorage item
-     * @return {string}
+     * @return {void}
      */
-     update(key) {
+     update(key, value) {
         this.isset(key) ? localStorage.setItem(key, value): null;
     }    
 

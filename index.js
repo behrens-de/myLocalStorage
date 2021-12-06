@@ -30,6 +30,16 @@ class MyLocalStorage {
     }
 
     /** 
+     * @method update
+     * @description - update item from the the localStorage
+     * @param {sting} key - to find the correct localStorage item
+     * @return {string}
+     */
+     update(key) {
+        this.isset(key) ? localStorage.setItem(key, value): null;
+    }    
+
+    /** 
      * @method remove
      * @description - removes a localstorage Item 
      * @param {sting} key - to find the correct localStorage item

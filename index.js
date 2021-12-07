@@ -123,7 +123,7 @@ class MyLocalStorage {
     updateArray(key, oldvalue, newvalue) {
         const array = JSON.parse(localStorage.getItem(key)) ?? [];
         const newArray = []
-        array.map(element => {element === oldvalue ? newArray.push(newvalue) : newArray.push(element)});
+        array.map(element => { element === oldvalue ? newArray.push(newvalue) : newArray.push(element) });
 
         if (Array.isArray(newArray)) {
             localStorage.setItem(key, JSON.stringify(newArray));
@@ -152,7 +152,10 @@ class MyLocalStorage {
     * @returns {boolean}  
     */
     setObject(key, object) {
-        localStorage.setItem(key, JSON.stringify([object]));
+        // Info: Arrays and Objects have the same typeof in JS
+        if (typeof object === 'object' && !Array.isArray(object) && !this.has(key)) {
+            localStorage.setItem(key, JSON.stringify([object]));
+        }
     }
 
     /**

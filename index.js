@@ -159,6 +159,30 @@ class MyLocalStorage {
     }
 
     /**
+    * @method updateObject
+    * @description - sets an object as a localstorage item
+    * @param {string} key - the localStorage Key
+    * @param {string} attribute - the localStorage Key
+    * @param {string} oldvalue - the localStorage Key
+    * @returns {void}  
+    */
+    updateObject(key, target, targetvalue, selected = null, selectedvalue = null) {
+
+        // Get Objects by Key
+        const objects = JSON.parse(localStorage.getItem(key)) ?? [];
+        // Map to the Objects
+        objects.map(obj => {
+            obj[target] === targetvalue && selected !== null && selectedvalue !== null
+                ? obj[selected] = selectedvalue
+                : obj[target] = targetvalue;
+
+            return obj;
+        });
+        localStorage.setItem(key, JSON.stringify(objects));
+    }
+
+
+    /**
     * @method getObjects
     * @description - returns the objects wrap into an array
     * @param {string} key - the localStorage Key

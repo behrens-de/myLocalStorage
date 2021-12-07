@@ -122,14 +122,8 @@ class MyLocalStorage {
      */
     updateArray(key, oldvalue, newvalue) {
         const array = JSON.parse(localStorage.getItem(key)) ?? [];
-        const newArray = [];
-        array.forEach(element => {
-            if (element === oldvalue) {
-                newArray.push(newvalue);
-            } else {
-                newArray.push(element);
-            }
-        });
+        const newArray = []
+        array.map(element => {element === oldvalue ? newArray.push(newvalue) : newArray.push(element)});
 
         if (Array.isArray(newArray)) {
             localStorage.setItem(key, JSON.stringify(newArray));

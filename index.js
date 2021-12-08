@@ -214,16 +214,8 @@ class MyLocalStorage {
     * @returns {void}  
     */
     removeObject(key, objectKey, value) {
-
         const array = JSON.parse(localStorage.getItem(key)) ?? [];
-        const newArray = [];
-
-        array.forEach(obj => {
-            if (obj[objectKey] !== value) {
-                newArray.push(obj);
-            }
-        });
-
+        const newArray = array.filter(obj => obj[objectKey] !== value);
         localStorage.setItem(key, JSON.stringify(newArray));
     }
 

@@ -68,6 +68,10 @@ const ob = storage.updateObject('examplObj', 'firstname', 'Mon');
 const ob2 = storage.updateObject('examplObj', 'firstname', 'Mon', 'age', 99);
 const ob3 = storage.updateObject('examplObj', 'age', 999);
 
+
+function setObject(){
+    storage.setObject('examplObj', examplObj2);
+    }
 // updateObject(key, target, targetvalue, selected, selectedvalue)
 function removeOnject(){
 storage.removeObject('examplObj', 'lastname', 'muster');
